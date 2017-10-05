@@ -34,8 +34,7 @@ svg.append("path")
   .attr("d", path)
 d3.json("https://d3js.org/world-110m.v1.json", function(error, world) {
   svg.insert("path", ".graticule")
-    .datum(
-    .object(world, world.objects.land))
+    .datum(topojson.feature(world, world.objects.land))
     .attr("class", "land").attr("d", path)
   svg.insert("path", ".graticule")
     .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a.id !== b.id; }))
