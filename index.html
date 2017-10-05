@@ -15,7 +15,7 @@
 <!-- <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script> -->
 <script>
 var width = 960, height = 800
-var projection = d3.geo.azimuthalEqualArea()
+var projection = d3.geoAzimuthalEqualArea()
   .scale(198).rotate([0, -90]).clipAngle(180 - 1e-3)
   .translate([width / 2, height / 2]).precision(.1)
 var path = d3.geo.path().projection(projection)
