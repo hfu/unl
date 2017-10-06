@@ -16,7 +16,7 @@
 var width = 960, height = 800
 //var projection = d3.geoAzimuthalEqualArea() // this is wrong!
 var projection = d3.geoAzimuthalEquidistant()
-  .scale(120).rotate([0, -90]).clipAngle(180 - 1e-3)
+  .scale(150).rotate([0, -90]).clipAngle(150 - 1e-3)
   .translate([width / 2, height / 2]).precision(.1)
 var path = d3.geoPath().projection(projection)
 var graticule = d3.geoGraticule()
