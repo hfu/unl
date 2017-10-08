@@ -4,8 +4,7 @@
 .background {fill: white;}
 .foreground {fill: none; stroke: #5086B9; stroke-width: 2px;}
 .graticule {fill: none; stroke: #5086B9; stroke-width: 2px;}
-.land {fill: #5086B9; stroke: #5086B9;}
-.boundary {fill: none; stroke: #5086B9;}
+.land {fill: #5086B9; stroke: #5086B9; stroke-width: 0px}
 </style>
 <body>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -33,12 +32,9 @@ svg.append("path")
   .datum({type: "Sphere"}).attr("class", "foreground")
   .attr("d", path)
 d3.json("https://d3js.org/world-110m.v1.json", function(error, world) {
-  svg.insert("path", ".graticule")
+  svg.insert("path", ".land")
     .datum(topojson.feature(world, world.objects.land))
     .attr("class", "land").attr("d", path)
-  svg.insert("path", ".graticule")
-    .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a.id !== b.id; }))
-    .attr("class", "boundary").attr("d", path);
 });
 d3.select(self.frameElement).style("height", height + "px");
 </script>
